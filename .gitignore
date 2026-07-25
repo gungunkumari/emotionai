@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual Environment
+.venv/
+venv/
+
+# Logs
+logs/
+*.log
+
+# TensorBoard
+runs/
+
+# Model files
+models/checkpoints/
+models/pretrained/
+models/exported/
+
+# Dataset
+data/raw/
+data/processed/
+data/splits/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db

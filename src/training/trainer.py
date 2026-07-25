@@ -2,7 +2,6 @@ import torch
 
 from src.training.engine import train_one_epoch, validate_one_epoch
 from src.training.callbacks import ModelCheckpoint
-from src.utils.tensorboard_logger import TensorBoardLogger
 
 
 def train_model(
@@ -24,8 +23,8 @@ def train_model(
 
     model.to(device)
 
+    # Initialize checkpoint saver
     checkpoint = ModelCheckpoint()
-    logger = TensorBoardLogger()
 
     for epoch in range(epochs):
 
@@ -44,26 +43,20 @@ def train_model(
             device,
         )
 
+        # Save history
         history["train_loss"].append(train_loss)
         history["val_loss"].append(val_loss)
 
         history["train_acc"].append(train_metrics["accuracy"])
         history["val_acc"].append(val_metrics["accuracy"])
 
+        # Save the best model
         checkpoint(
             model,
             val_metrics["accuracy"],
         )
 
-        logger.log(
-            epoch,
-            train_loss,
-            val_loss,
-            train_metrics["accuracy"],
-            val_metrics["accuracy"],
-        )
-
-        print(f"\nEpoch {epoch+1}/{epochs}")
+        print(f"\nEpoch {epoch + 1}/{epochs}")
 
         print(
             f"Train Loss: {train_loss:.4f} | "
@@ -74,7 +67,5 @@ def train_model(
             f"Val Loss: {val_loss:.4f} | "
             f"Val Acc: {val_metrics['accuracy']:.4f}"
         )
-
-    logger.close()
 
     return history
