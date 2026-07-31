@@ -1,0 +1,3 @@
+2026-07-25 04:25:52 | INFO     | Test | Logger initialized successfully.
+2026-07-25 04:25:52 | WARNING  | Test | This is a warning message.
+2026-07-25 04:25:52 | ERROR    | Test | This is an error message.

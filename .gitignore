@@ -1,30 +1,24 @@
 # Python
 __pycache__/
-*.py[cod]
-*.pyo
-
-# Virtual Environment
+*.pyc
 .venv/
 venv/
 
-# Logs
-logs/
-*.log
+# Environment variables
+.env
 
-# TensorBoard
-runs/
+# Node
+node_modules/
+npm-debug.log
 
-# Model files
-models/checkpoints/
-models/pretrained/
-models/exported/
+# Build folders
+dist/
+build/
 
-# Dataset
-data/raw/
-data/processed/
-data/splits/
+# Generated outputs
+outputs/
 
-# VS Code
+# IDE
 .vscode/
 
 # OS files

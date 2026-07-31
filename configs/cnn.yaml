@@ -17,5 +17,6 @@ scheduler:
   name: cosineannealinglr
 
 model:
-  name: vit
+  name: cnn
   num_classes: 7
+  checkpoint: models/checkpoints/best_cnn.pth
